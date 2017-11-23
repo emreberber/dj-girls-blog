@@ -5,4 +5,12 @@ from .models import Post  # .models in önündeki nokta aynı dizinde olduğumuz
 
 # Register your models here.
 
-admin.site.register(Post)  # Post modelimiz artık admin panelinde gözükecek
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ["title", "publishing_date"]  # Post'da hangileri gozuksun ?
+    list_display_links = ["title", "publishing_date"]  # Hangilerine link ozelligi verilsin ?
+    list_filter = ["publishing_date"]  # Sag kenarda filtreleme kutucugu neye gore filtrelesin ?
+    search_fields = ["title", "content"]  # Arama kutucugu neye gore arama yapsin ?
+
+
+admin.site.register(Post, PostAdmin)  # Post modelimiz artık admin panelinde gözükecek.PostAdmini de ekledik !
