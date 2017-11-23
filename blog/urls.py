@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from post.views import home_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),  # emre - emre1234
+    url(r'^$', home_view)  # Ana dizine gelince home_view 'i calistir dedik
 
 ]
